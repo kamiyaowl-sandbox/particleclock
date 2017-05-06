@@ -1,0 +1,31 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ParticleClock"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="ParticleClock.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="375.628" Width="719.77" Loaded="Window_Loaded">
+    <Grid>
+        <Canvas x:Name="drawCanvas" Margin="10,35,10,10" MouseLeftButtonDown="drawCanvas_MouseLeftButtonDown" MouseLeftButtonUp="drawCanvas_MouseLeftButtonUp" MouseRightButtonDown="drawCanvas_MouseRightButtonDown" MouseRightButtonUp="drawCanvas_MouseRightButtonUp" MouseEnter="drawCanvas_MouseEnter" MouseMove="drawCanvas_MouseMove" MouseLeave="drawCanvas_MouseLeave" Background="White">
+            <i:Interaction.Behaviors>
+                <ei:FluidMoveBehavior AppliesTo="Children" Duration="0:0:0.6">
+                    <ei:FluidMoveBehavior.EaseY>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </ei:FluidMoveBehavior.EaseY>
+                    <ei:FluidMoveBehavior.EaseX>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </ei:FluidMoveBehavior.EaseX>
+                </ei:FluidMoveBehavior>
+            </i:Interaction.Behaviors>
+        </Canvas>
+        <Button Content="Add 100 Particles" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="109" Click="addParticles_Click"/>
+        <Button Content="Clear All Particles" HorizontalAlignment="Left" Margin="124,10,0,0" VerticalAlignment="Top" Width="109" Click="clearParticles_Click"/>
+        <Button Content="Sort" HorizontalAlignment="Left" Margin="316,10,0,0" VerticalAlignment="Top" Width="61" Click="sortParticles_Click"/>
+        <Button Content="Random" HorizontalAlignment="Left" Margin="382,10,0,0" VerticalAlignment="Top" Width="61" Click="randomMoveParticles_Click"/>
+        <Button Content="Circle" HorizontalAlignment="Left" Margin="448,10,0,0" VerticalAlignment="Top" Width="61" Click="circleMoveParticles_Click"/>
+        <CheckBox x:Name="randomFifoEnable" Content="Random" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
